@@ -85,4 +85,4 @@ sudo cp audioshuffle /usr/local/bin/
 This script uses sox [http://sox.sourceforge.net/](http://sox.sourceforge.net/).
 
 #### Installation of sox via apt:
-`sudo apt-get install sox libsox-fmt-all`
+`sudo apt install sox libsox-fmt-all`
