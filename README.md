@@ -37,8 +37,13 @@ audio/Primus_-_Sailing The Seas Of Cheese__1991/02 - Primus - Here Come The Bast
 audioshuffle_2019-09-08_19_57_25__120bpm_16beats.wav
 ```
 
-`audioshuffle` processed 16 audio files and extracted 0.5 seconds (120BPM quarter-note) of audio at a random startpoint of each file.
-All audio-slices are concatenated into the result-file named 'audioshuffle_2019-09-08_19_57_25__120bpm_16beats.wav'.
+In this example `audioshuffle` processed 16 audio files in the directory 'audio'. 
+For each file 0.5 seconds (120BPM quarter-note) of audio at a random startpoint were extracted and
+concatenated into the result-file named 'audioshuffle_2019-09-08_19_57_25__120bpm_16beats.wav'.
+
+## why?
+Maybe you are a Musician and into sampling and you are searching for new abstract sample sources?<br>
+Maybe audioshuffle just points you to music you have forgotten on your harddisk :)
 
 ## sox
 This script uses sox [http://sox.sourceforge.net/](http://sox.sourceforge.net/).
