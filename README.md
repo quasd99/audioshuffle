@@ -10,7 +10,7 @@ Use audioshuffle with default values: 120BPM, 16 Slices, sample-rate 44100, bitr
 
 ### Functionality
 
-`audioshuffle /media/fra/MUSICPOOL/__Samples/Extern/Loops`<br>
+`audioshuffle audio`<br>
 
 *Example-Output:*
 ```
