@@ -1,6 +1,6 @@
 # audioshuffle
 
-This is bash-script for randomly searching and chopping up audiofiles in a directory and generate a result-file with all generated audio-slices.
+This is a bash-script for randomly searching for and chopping up audiofiles in a directory and generating a result-file with all generated audio-slices.
 
 ## Simple Usage Example
 
@@ -12,7 +12,7 @@ Use audioshuffle with default values: 120BPM, 16 Slices, sample-rate 44100, bitr
 
 `audioshuffle /media/fra/MUSICPOOL/__Samples/Extern/Loops`<br>
 
-Example-Output
+*Example-Output:*
 ```
 start reading directory recursively with maxdepth 2
 start processing files
@@ -42,14 +42,8 @@ For each file 0.5 seconds (120BPM quarter-note) of audio at a random startpoint 
 concatenated into the result-file named 'audioshuffle_2019-09-08_19_57_25__120bpm_16beats.wav'.
 
 ## why?
-Maybe you are a Musician and into sampling and you are searching for new abstract sample sources?<br>
-Maybe audioshuffle just points you to music you have forgotten on your harddisk :)
-
-## sox
-This script uses sox [http://sox.sourceforge.net/](http://sox.sourceforge.net/).
-
-### Installation of sox via apt:
-`sudo apt-get install sox libsox-fmt-all`
+Maybe you are a Musician and into sampling and you are searching for new abstract sample possibilities?<br>
+Maybe `audioshuffle` just points you to music you have forgotten on your harddisk :)
 
 ## Help (audioshuffle -h)
 ```
@@ -85,3 +79,9 @@ git clone https://github.com/quasd99/audioshuffle.git
 cd audioshuffle
 sudo cp audioshuffle /usr/local/bin/
 ```
+
+##ä sox
+This script uses sox [http://sox.sourceforge.net/](http://sox.sourceforge.net/).
+
+#### Installation of sox via apt:
+`sudo apt-get install sox libsox-fmt-all`
