@@ -77,6 +77,7 @@ audioshuffle -b8 -c1 -r8000 -d60 -s8
 ```
 git clone https://github.com/quasd99/audioshuffle.git
 cd audioshuffle
+sudo chmod +x audioshuffe
 sudo cp audioshuffle /usr/local/bin/
 ```
 
