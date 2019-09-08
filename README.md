@@ -1,6 +1,6 @@
 # audioshuffle
 
-This is bash-script for randomly search and chopping audiofiles in a directory and generate a result-file with all generated slices.
+This is bash-script for randomly searching and chopping up audiofiles in a directory and generate a result-file with all generated audio-slices.
 
 This script uses sox [http://sox.sourceforge.net/](http://sox.sourceforge.net/).
 
@@ -36,11 +36,14 @@ audioshuffle -b8 -c1 -r8000 -d60 -s8
 ```
 
 ## Local Installation
-`git clone https://github.com/quasd99/audioshuffle.git`
-`cd audioshuffle`
-`sudo cp audioshuffle /usr/local/bin/`
+```
+git clone https://github.com/quasd99/audioshuffle.git
+cd audioshuffle
+sudo cp audioshuffle /usr/local/bin/
+```
 
 ## Simple Usage Example
 
 Use audioshuffle with default values: 120BPM, 16 Slices, sample-rate 44100, bitrate 16, stereo, autoplay 1
+
 `audioshuffle path/to/dir`
