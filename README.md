@@ -80,7 +80,7 @@ cd audioshuffle
 sudo cp audioshuffle /usr/local/bin/
 ```
 
-##ä sox
+### sox
 This script uses sox [http://sox.sourceforge.net/](http://sox.sourceforge.net/).
 
 #### Installation of sox via apt:
