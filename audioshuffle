@@ -9,6 +9,9 @@ CHANNEL=2
 AUTOPLAY=1
 BPM=120
 DURATION=`echo "60 $BPM" | awk '{printf "%f", $1 / $2}'`
+TEMP=`mktemp -d`
+
+echo temp:$TEMP
 
 function printhelp {
     echo "usage: audioshuffle [options] [dir]"
@@ -133,8 +136,7 @@ echo " autoplay:    $AUTOPLAY"
 echo " bpm:         $BPM"
 echo
 
-DURATION=`echo "60 $BPM" | awk '{printf "%f", $1 / $2}'`
-
+DURATION=`echo "60 $BPM" | awk '{printf "%f", $1 / $2}' | tr ',' '.'`
 
 echo -e "start reading directory recursively with maxdepth $MAXDEPTH"
 
@@ -154,17 +156,17 @@ for file in $FILES ; do
     FILELENGTH=`soxi -D "$file" 2> /dev/null`
     if [ -z $FILELENGTH ] ; then FILELENGTH=1 ; fi
     RND_VALUE=$((${FILELENGTH%.*} - ${DURATION%.*}))
-    if [ $RND_VALUE -lt 1 ] ; then 
+    if [ $RND_VALUE -lt 1 ] ; then
         RND_STARTPOINT=0
     else
         RND_STARTPOINT=$((RANDOM % $RND_VALUE))
     fi
-    #echo ' 'duration: ${FILELENGTH%.*}, startpoint:$RND_STARTPOINT
+    #echo ' ' filelength: ${FILELENGTH%.*}, startpoint:$RND_STARTPOINT, duration:$DURATION
 
     # extract audio to tempfile
-    sox "$file" -c $CHANNEL -r $SAMPLE_RATE -b $BITRATE /tmp/temp$COUNTER.wav trim $RND_STARTPOINT $DURATION 2> /dev/null
+    sox "$file" -c $CHANNEL -r $SAMPLE_RATE -b $BITRATE $TEMP/temp$COUNTER.wav trim $RND_STARTPOINT $DURATION 2> /dev/null
     if [ $? -ne 0 ] ; then
-        rm /tmp/temp$COUNTER.wav
+        rm $TEMP/temp$COUNTER.wav
     fi
 
     COUNTER=$[$COUNTER +1]
@@ -172,7 +174,7 @@ done
 
 # concat string with all tempfiles
 CONC_FILES=
-for file in `find '/tmp' -maxdepth 1 -name "temp*.wav" | sort` ; do
+for file in `find $TEMP -maxdepth 1 -name "temp*.wav" | sort` ; do
     CONC_FILES+="$file "
 done
 
@@ -194,4 +196,4 @@ if [ $AUTOPLAY -eq 1 ] ; then
 fi
 
 # remove temp files
-rm /tmp/temp*.wav
+rm -r $TEMP

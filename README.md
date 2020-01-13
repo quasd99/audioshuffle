@@ -84,5 +84,13 @@ sudo cp audioshuffle /usr/local/bin/
 ### sox
 This script uses sox [http://sox.sourceforge.net/](http://sox.sourceforge.net/).
 
-#### Installation of sox via apt:
+#### Installation of sox via apt (Linux):
 `sudo apt install sox libsox-fmt-all`
+
+#### Installation of sox via homebrew (mac):
+`brew install sox`
+
+### shuf / gshuf
+This script use shuf to select random files, please install coreutils if using mac:
+`brew install coreutils`
+
