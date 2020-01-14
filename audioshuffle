@@ -8,7 +8,7 @@ BITRATE=16
 CHANNEL=2
 AUTOPLAY=1
 BPM=120
-DURATION=`echo "60 $BPM" | awk '{printf "%f", $1 / $2}'`
+DURATION=`echo "60 $BPM" | awk '{printf "%f", $1 / $2}' | tr ',' '.'`
 TEMP=`mktemp -d`
 
 echo temp:$TEMP
@@ -105,7 +105,7 @@ while getopts "ha:b:c:m:r:s:t:" arg; do
         fi
         BPM=$OPTARG
         if [[ $BPM -lt 0 ]] ; then BPM=1 ; fi
-        DURATION=`echo "60 $BPM" | awk '{printf "%f", $1 / $2}'`
+        DURATION=`echo "60 $BPM" | awk '{printf "%f", $1 / $2}' | tr ',' '.'`
       ;;
     *)
         printhelp
@@ -136,7 +136,7 @@ echo " autoplay:    $AUTOPLAY"
 echo " bpm:         $BPM"
 echo
 
-DURATION=`echo "60 $BPM" | awk '{printf "%f", $1 / $2}' | tr ',' '.'`
+#DURATION=`echo "60 $BPM" | awk '{printf "%f", $1 / $2}'
 
 echo -e "start reading directory recursively with maxdepth $MAXDEPTH"
 
